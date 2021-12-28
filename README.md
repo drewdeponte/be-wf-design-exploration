@@ -45,3 +45,35 @@ Over the years I have moved further and further away from dynamic languages
 and more and more toward static strongly typed languages. It is my new default
 for everything that I build. So I thought it would be interesting to see what
 sort of implications there are from having that requirement in this context.
+
+## Install Dependencies
+
+```
+npm install
+```
+
+## Build & Run
+
+The following will build and run the main entrypoint.
+
+```
+npm run r
+```
+
+If you instead wish to simply build only you can use the following:
+
+```
+npm run build
+```
+
+Additionally if you wish to run only you can do the following:
+
+```
+npm run run
+```
+
+## Run tests
+
+```
+npm run test
+```
