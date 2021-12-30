@@ -1,6 +1,15 @@
-import * as ws from './ws';
+import * as wf from "./wf";
+import { buildRoutes } from "./routes";
 
-console.log("Hello World");
+const realDbPool = { id: "realDbPool" };
+const routes = buildRoutes(realDbPool);
+const router = wf.router(routes, wf.notFoundRoute);
 
-let foo = ws.sum(1, 2);
-console.log(foo);
+// Normally this request would come in via an HTTP Server and get translated
+// into a wf.Request object and in turn handed to the wf.process() function.
+// However, this works as a means of simulating this for the development of
+// the framework without needing to build the HTTP Server portion.
+const request: wf.Request = { path: "/foo" };
+const response = wf.process(request, router);
+
+console.log(response);
