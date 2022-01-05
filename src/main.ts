@@ -1,8 +1,13 @@
 import * as wf from "./wf";
+import { DatabasePool } from "./db";
 import { buildRoutes } from "./routes";
 
+function getOtherDbPool(): DatabasePool {
+  return { id: "otherRealDbPool" };
+}
+
 const realDbPool = { id: "realDbPool" };
-const routes = buildRoutes(realDbPool);
+const routes = buildRoutes(realDbPool, getOtherDbPool);
 const router = wf.router(routes, wf.notFoundRoute);
 
 // Normally this request would come in via an HTTP Server and get translated
